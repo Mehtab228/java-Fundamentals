@@ -8,3 +8,7 @@
 
 ## lowestAverage(): Given an array of arrays calculate the average value for each array and return the array with the lowest average
 
+## minMaxNotIncluded(): Give an array of arrays it calculates the min and max and then prints out the numbers not included between them
+
+## tally(); function called tally that accepts a List of Strings representing votes and returns one string to show what got the most votes
+

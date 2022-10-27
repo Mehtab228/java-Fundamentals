@@ -20,7 +20,16 @@ class AppTest {
     @Test void linterWorks() throws IOException {
         App classUnderTest = new App();
         Path file = Paths.get("src/main/resources/gates.js");
+        Path file1 = Paths.get("src/main/resources/oneErr.js");
+        Path file2 = Paths.get("src/main/resources/empty.js");
+        Path file3 = Paths.get("src/main/resources/fourError.js");
         int errorCount = 46;
+        int errorCount1 = 1;
+        int errorCount2 = 0;
+        int errorCount3 = 4;
         assertEquals(errorCount, classUnderTest.countErrorsWithExceptions(file));
+        assertEquals(errorCount1,classUnderTest.countErrorsWithExceptions(file1));
+        assertEquals(errorCount2,classUnderTest.countErrorsWithExceptions(file2));
+        assertEquals(errorCount3,classUnderTest.countErrorsWithExceptions(file3));
     }
 }

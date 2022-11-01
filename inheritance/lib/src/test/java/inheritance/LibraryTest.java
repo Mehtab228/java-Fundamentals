@@ -7,8 +7,48 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-    @Test void someLibraryMethodReturnsTrue() {
-        Library classUnderTest = new Library();
-        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
+    @Test
+    void testRestaurantConstructor() {
+        Restaurant sut = new Restaurant("Carmelos", 3);
+        assert(sut.getName().equals("Carmelos"));
+        assert(sut.getPriceScore() == 3);
+        assert(sut.getStarCount() == 0.0);
+        assert(sut.toString().equals("{ name: Carmelos, price: 3, rating: 0.0 }"));
+    }
+
+    @Test void addReviewToReviews() {
+        Restaurant sut = new Restaurant("Carmelos", 3);
+        Review review = new Review("Joe", 5, "Amazing.");
+        Review review2 = new Review("Max", 4, "Amazing.");
+        sut.addReview(review);
+        sut.addReview(review2);
+        assert(sut.getReviewCount() == 2);
+        assert (sut.getStarCount() == 4.5);
+    }
+
+    @Test void checkReview() {
+        Restaurant sut = new Restaurant("Carmelos", 3);
+        Review review = new Review("Joe", 5, "Amazing.");
+        Review review2 = new Review("Max", 4, "So good.");
+        sut.addReview(review);
+        sut.addReview(review2);
+        assert(review.toString().equals("{ author: Joe, stars: 5.0, review: Amazing. }"));
+        assert(review2.toString().equals("{ author: Max, stars: 4.0, review: So good. }"));
+    }
+
+    @Test void duplicateReview() {
+        Restaurant sut = new Restaurant("Carmelos", 3);
+        Review review = new Review("Joe", 5, "Amazing.");
+        sut.addReview(review);
+        Review review2 = new Review("Joe", 4, "So good.");
+        sut.addReview(review2);
+    }
+
+    @Test void badRestaurant(){
+        assertThrows(IllegalArgumentException.class, () -> new Restaurant("Carmelos", -3));
+    }
+
+    @Test void badReviews(){
+        assertThrows(IllegalArgumentException.class, () -> new Review("Joe", -5, "Amazing."));
     }
 }

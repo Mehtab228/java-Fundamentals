@@ -38,10 +38,11 @@ class LibraryTest {
 
     @Test void duplicateReview() {
         Restaurant sut = new Restaurant("Carmelos", 3);
-        Review review = new Review("Joe", 5, "Amazing.");
+        Review review = new Review("Ben", 5, "Amazing.");
         sut.addReview(review);
-        Review review2 = new Review("Joe", 4, "So good.");
+        Review review2 = new Review("Ben", 5, "Amazing.");
         sut.addReview(review2);
+        assert(sut.getReviewCount() == 1);
     }
 
     @Test void badRestaurant(){

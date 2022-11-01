@@ -39,9 +39,11 @@ public class Restaurant {
     }
 
     public void addReview(Review review) {
-        if(!reviews.contains(review.author)) {
+        boolean namePresent = reviews.stream().anyMatch((v) -> v.author.equals(review.author));
+        if(!namePresent) {
             reviews.add(review);
             reviewCount++;
+            System.out.println(reviews);
         } else {
             System.out.println("You have already left a review!");
         }

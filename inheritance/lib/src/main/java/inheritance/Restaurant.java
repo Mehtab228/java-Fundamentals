@@ -42,7 +42,6 @@ public class Restaurant {
         if(!reviews.contains(review.author)) {
             reviews.add(review);
             reviewCount++;
-            System.out.println(review.author);
         } else {
             System.out.println("You have already left a review!");
         }

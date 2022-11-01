@@ -3,6 +3,9 @@
  */
 package inheritance;
 
+import inheritance.Places.Restaurant;
+import inheritance.Places.Shop;
+import inheritance.Review.Review;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,6 +17,15 @@ class LibraryTest {
         assert(sut.getPriceScore() == 3);
         assert(sut.getStarCount() == 0.0);
         assert(sut.toString().equals("{ name: Carmelos, price: 3, rating: 0.0 }"));
+    }
+
+    @Test void testShopConstructor(){
+        Shop sut = new Shop("Target", "Black hole of stuff", 2);
+        assert(sut.getName().equals("Target"));
+        assert(sut.getPriceScore() == 2);
+        assert(sut.getStarCount() == 0.0);
+        assert(sut.getDescription().equals("Black hole of stuff"));
+        assert(sut.toString().equals("{ name: Target, description: Black hole of stuff, price: 2, stars: 0.0 }"));
     }
 
     @Test void addReviewToReviews() {

@@ -1,8 +1,8 @@
-package inheritance;
+package inheritance.Review;
 
 
 public class Review {
-    protected String author;
+    public String author;
     protected double starCount;
     private String body;
 
@@ -10,6 +10,10 @@ public class Review {
         this.author = author;
         setStarCount(starCount);
         this.body = body;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 
     public void setStarCount(int starCount) {

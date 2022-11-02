@@ -2,6 +2,7 @@ package inheritance.Places;
 
 import inheritance.Review.Review;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Places {
@@ -30,11 +31,13 @@ public class Places {
     }
 
     private double getAverageStarCount(ArrayList<Review> reviewList){
-        double sum = 0.0;
+        double sum = 0;
         for(Review item: reviewList) {
             sum += item.getStarCount();
         }
-        return sum/reviewList.size();
+        double newSum = sum/reviewList.size();
+        DecimalFormat df1 = new DecimalFormat("0.##");
+        return Double.parseDouble(df1.format(newSum));
     }
 
     public void addReview(Review review) {
@@ -42,7 +45,6 @@ public class Places {
         if(!namePresent) {
             reviews.add(review);
             reviewCount++;
-            System.out.println(reviews);
         } else {
             System.out.println("You have already left a review!");
         }
@@ -68,6 +70,6 @@ public class Places {
     }
 
     public String toString() {
-        return "{ name: " + name + ", price: " + priceScore + ", rating: " + getStarCount() + " }";
+        return "{ name: " + name + ", price: " + priceScore + ", stars: " + getStarCount() + " }";
     }
 }

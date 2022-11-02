@@ -4,12 +4,20 @@ package inheritance.Review;
 public class Review {
     public String author;
     protected double starCount;
-    private String body;
+    private final String body;
+    public String movieSeen = "";
 
     public Review(String author, int starCount, String body) {
         this.author = author;
         setStarCount(starCount);
         this.body = body;
+    }
+
+    public Review(String author,  int starCount, String body, String movieSeen){
+        this.author = author;
+        setStarCount(starCount);
+        this.body = body;
+        this.movieSeen = movieSeen;
     }
 
     public String getAuthor() {
@@ -27,9 +35,12 @@ public class Review {
         return starCount;
     }
 
-
     public String toString() {
-        return "{ author: " + author + ", stars: " + starCount + ", review: " + body + " }";
+        if (movieSeen.equals(""))
+            return "{ author: " + author + ", stars: " + starCount + ", review: " + body + " }";
+        else
+            return "{ author: " + author + ", stars: " + starCount + ", review: " + body
+                    + ", movie_viewed: " + movieSeen + " }";
     }
 
 }

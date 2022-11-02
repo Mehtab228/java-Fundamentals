@@ -1,3 +1,5 @@
+[Lab 07](https://github.com/Mehtab228/java-Fundamentals/blob/arrays/inheritance/README.md)
+
 # List of functions included
 
 ## roll(): a function that accepts an integer n and rolls a six-sided dice n times. The method returns an array containing the values of the rolls.

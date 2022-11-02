@@ -1,5 +1,7 @@
 # Inheritance 
 
+![Domain Model](Domain Model.png)
+
 ## The inheritance package contains a restaurant class and review class that can be used together to create Restaurant objects and Review objects.
 
 ### The star review system in place has a range of 0 to 5 stars (0 being the worst and 5 the best)

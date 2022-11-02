@@ -1,6 +1,6 @@
 # Inheritance 
 
-![Domain Model](Domain Model.png)
+![Image](./Domain Model.png)
 
 ## The inheritance package contains a restaurant class and review class that can be used together to create Restaurant objects and Review objects.
 
